@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergency System</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    /* Emergency Button Container */
+    .button-container {
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Emergency Buttons */
+    .report-emergency, .emergency-alert {
+      background-color: red;
+      color: white;
+      font-size: 20px;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    .report-emergency:hover, .emergency-alert:hover {
+      background-color: darkred;
+    }
+
+    /* Emergency Modal */
+    .modal {
+      display: none; /* Initially hidden */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+      background-color: white;
+      margin: 15% auto; /* 15% from the top and centered */
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%; /* Could be more narrow */
+    }
+
+    /* Close Button (x) */
+    .close {
+      color: #fff;
+      float: right;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      cursor: pointer;
+    }
+
+    /* Emergency Alert Details */
+    .patient {
+      margin-bottom: 10px;
+    }
+
+    .alert {
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #ffeb3b;
+      color: #333;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="button-container">
+    <button class="report-emergency" id="report-emergency-btn">🚨 Report Emergency</button>
+    <button class="emergency-alert" id="emergency-alert-btn">⚠️ Emergency Alert</button>
+  </div>
+
+  <div id="alerts"></div>
+
+  <div id="emergency-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Emergency Alert</h2>
+      <p>Enter details of the emergency to notify volunteers.</p>
+      <input type="text" id="emergency-location" placeholder="Enter affected area">
+      <textarea id="emergency-details" placeholder="Describe the situation"></textarea>
+      <button id="send-alert">Send Alert</button>
+    </div>
+  </div>
+
+  <script>
+    // Get modal elements
+    const modal = document.getElementById("emergency-modal");
+    const reportEmergencyBtn = document.getElementById("report-emergency-btn");
+    const emergencyAlertBtn = document.getElementById("emergency-alert-btn");
+    const closeBtn = document.querySelector(".close");
+    const sendAlertBtn = document.getElementById("send-alert");
+    const alertsContainer = document.getElementById('alerts');
+
+    // Open Modal on Click
+    reportEmergencyBtn.addEventListener("click", () => {
+      modal.style.display = "flex";
+    });
+
+    emergencyAlertBtn.addEventListener("click", () => {
+      // Mock data for patients affected by a natural disaster
+      const patients = [
+        { id: 1, name: 'John Doe', condition: 'Critical', location: 'Location 1' },
+        { id: 2, name: 'Jane Smith', condition: 'Serious', location: 'Location 2' }
+      ];
+
+      // Flagging urgent patients
+      const urgentPatients = patients.filter(patient => patient.condition === 'Critical' || patient.condition === 'Serious');
+
+      // Display notifications to volunteers
+      displayAlerts(urgentPatients);
+    });
+
+    // Close Modal on Click (× button)
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    // Close Modal if user clicks outside the modal
+    window.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+
+    // Handle Emergency Alert Submission
+    sendAlertBtn.addEventListener("click", () => {
+      const location = document.getElementById("emergency-location").value;
+      const details = document.getElementById("emergency-details").value;
+
+      if (location && details) {
+        alert(`🚨 Emergency alert sent for ${location}!\nDetails: ${details}`);
+        modal.style.display = "none";
+      } else {
+        alert("⚠️ Please fill in all details.");
+      }
+    });
+
+    // Function to display alerts
+    function displayAlerts(urgentPatients) {
+      alertsContainer.innerHTML = ''; // Clear previous alerts
+
+      urgentPatients.forEach(patient => {
+        const alertDiv = document.createElement('div');
+        alertDiv.classList.add('alert', 'patient');
+        alertDiv.textContent = `Urgent case: ${patient.name}, Condition: ${patient.condition}, Location: ${patient.location}`;
+        alertsContainer.appendChild(alertDiv);
+      });
+
+      // Show alert container
+      const alerts = document.querySelectorAll('.alert');
+      alerts.forEach(alert => alert.style.display = 'block');
+    }
+  </script>
+</body>
+</html>

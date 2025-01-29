@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Information Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        input, select, button {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: #048581;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #02665c;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('patient-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const name = document.getElementById('name').value;
+                const age = document.getElementById('age').value;
+                const gender = document.getElementById('gender').value;
+                const contact = document.getElementById('contact').value;
+                const location = document.getElementById('location').value;
+                const injury = document.getElementById('injury').value;
+                const transport = document.getElementById('transport').value;
+
+                console.log(`Patient's Name: ${name}`);
+                console.log(`Patient's Age: ${age}`);
+                console.log(`Patient's Gender: ${gender}`);
+                console.log(`Contact Number: ${contact}`);
+                console.log(`Patient's Location: ${location}`);
+                console.log(`Injury Type: ${injury}`);
+                console.log(`Preferred Mode of Transport: ${transport}`);
+
+                alert('Form submitted successfully!');
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Patient Information Form</h2>
+        <form id="patient-form">
+            <label for="name">Patient's Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="age">Patient's Age:</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="gender">Patient's Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="contact">Contact Number:</label>
+            <input type="tel" id="contact" name="contact" required>
+
+            <label for="location">Patient's Location:</label>
+            <input type="text" id="location" name="location" required>
+
+            <label for="injury">Injury Type:</label>
+            <input type="text" id="injury" name="injury" required>
+
+            <label for="transport">Preferred Mode of Transport:</label>
+            <select id="transport" name="transport" required>
+                <option value="2-wheeler">2 Wheeler</option>
+                <option value="4-wheeler">4 Wheeler</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SwasthSetu - Healthcare Access</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header>
+      <nav>
+        <div class="logo-container">
+          <img src="logo.png" alt="SwasthSetu Logo" class="logo-img" />
+          <div class="logo-title">SwasthSetu</div>
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a href="#features"><i class="fas fa-cogs"></i> Features</a>
+          </li>
+          <li>
+
+            <a href="leaderboard.html"
+              ><i class="fas fa-hands-helping"></i> Volunteer</a
+            >
+          </li>
+          <li>
+            <a href="Emergency.html">
+              <i class="fas fa-exclamation-triangle"></i> Emergency
+            </a>
+          </li>          
+        </ul>
+
+        <a href="login.html" class="get-started">Login</a>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Bridging the Gap in Healthcare Access</h1>
+        <p>
+          Connect with volunteers, track ambulances, and ensure everyone has
+          access to quality healthcare when they need it most.
+        </p>
+        <div class="hero-buttons">
+
+          <button
+            class="btn btn-white"
+            onclick="document.location='AskForHelpForm.html'"
+          >
+            Ask For Help
+          </button>
+          <button
+            class="btn btn-teal"
+            onclick="document.location='BecomeAvolunteerForm.html'"
+          >
+            Become a Volunteer
+          </button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="doctor-image.jpg" alt="Doctor holding a phone" />
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+      <div class="stat">
+        <h3>24/7</h3>
+        <p>Emergency Support</p>
+      </div>
+      <div class="stat">
+        <h3>100+</h3>
+        <p>Cities Covered</p>
+      </div>
+      <div class="stat">
+        <h3>1000+</h3>
+        <p>Daily Emergency Calls</p>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+      <h2>Our Features</h2>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <i class="fas fa-users"></i>
+          <h3>Volunteer Transport Network</h3>
+          <p>
+            Volunteers offer non-emergency rides and earn points for their
+            service.
+          </p>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-ambulance"></i>
+          <h3>Smart Ambulance Tracking</h3>
+          <p>Book and track ambulances with real-time updates and alerts.</p>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-person-dress"></i>
+          <h3>Women Specific Concerns</h3>
+          <p>
+            Option to choose female volunteers for women specific and sensitive
+            needs
+          </p>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-graduation-cap"></i>
+          <h3>Emergency Education</h3>
+          <p>Educational content for handling on-road emergencies.</p>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-trophy"></i>
+          <h3>Gamified Rewards System</h3>
+          <p>Earn badges, claim leaderboards, and receive perks.</p>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-bell"></i>
+          <h3>Priority Emergency System</h3>
+          <p>
+            Flag urgent patients affected by natural disasters for priority.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="get-started" class="cta-section">
+      <h2>Ready to Make a Difference?</h2>
+      <p>
+        Join our community of volunteers and help bridge the healthcare access
+        gap in your area.
+      </p>
+      <button
+        class="btn btn-teal"
+        onclick="document.location='BecomeAvolunteerForm.html'"
+      >
+        Join SwasthSetu Today
+      </button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <div>SwasthSetu</div>
+          <p>Bridging the gap in healthcare access</p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#volunteer" onclick="document.location='BecomeAvolunteerForm.html'">Volunteer</a></li>
+            <li><a href="#emergency" onclick="document.location='Emergency.html'" >Emergency</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3>Contact</h3>
+          <p>Email: contact@swasthsetu.com</p>
+          <p>Phone: +91 12345 67890</p>
+          <p>Address: ABC Health St, Wellness Locality</p>
+        </div>
+      </div>
+    </footer>
+
+    <footer class="footer-bottom">
+      <p>&copy; 2024 SwasthSetu. All rights reserved.</p>
+    </footer>
+
+    <script
+      data-name="BMC-Widget"
+      data-cfasync="false"
+      src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+      data-id="InsaneJSK"
+      data-description="Support me on Buy me a coffee!"
+      data-message="Thank you for your support!"
+      data-color="#FFDD00"
+      data-position="Right"
+      data-x_margin="18"
+      data-y_margin="18"
+    ></script>
+  </body>
+</html>

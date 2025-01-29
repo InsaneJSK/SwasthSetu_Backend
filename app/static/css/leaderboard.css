@@ -1,0 +1,226 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #02665c, #048581);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Navbar - Full Width */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ensures full width */
+    padding: 15px 40px;
+    background-color: #02665c;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 50px;  /* Adjusted for better visibility */
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.logo-title {
+    font-size: 26px;
+    font-weight: bold;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 15px; /* Adjust spacing between menu items */
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #a2ebd8;
+}
+
+
+.get-started {
+    padding: 12px 24px;
+    background: #048581;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.get-started:hover {
+    background: white;
+    color: #048581;
+    border: 2px solid #048581;
+}
+
+/* Leaderboard Container */
+.leaderboard-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    color: #02665c;
+    margin-top: 100px; /* Push content down to avoid overlap */
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #02665c;
+    color: white;
+}
+
+/* Top 3 Glowing Effects */
+.gold { animation: glowGold 1.5s infinite alternate; }
+.silver { animation: glowSilver 1.5s infinite alternate; }
+.bronze { animation: glowBronze 1.5s infinite alternate; }
+
+@keyframes glowGold {
+    from { box-shadow: 0 0 10px gold; }
+    to { box-shadow: 0 0 20px gold; }
+}
+
+@keyframes glowSilver {
+    from { box-shadow: 0 0 10px silver; }
+    to { box-shadow: 0 0 20px silver; }
+}
+
+@keyframes glowBronze {
+    from { box-shadow: 0 0 10px #cd7f32; }
+    to { box-shadow: 0 0 20px #cd7f32; }
+}
+
+/* Footer */
+footer {
+    background: #111827;
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.footer-logo p {
+    font-size: 1rem;
+    margin-top: 5px;
+    color: #a2ebd8;
+}
+
+.footer-links {
+    text-align: left;
+}
+
+.footer-links h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 5px;
+}
+
+.footer-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-links li a:hover {
+    color: #a2ebd8;
+}
+
+.footer-contact {
+    text-align: left;
+}
+
+.footer-contact h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-contact p {
+    margin: 5px 0;
+}
+
+/* Bottom Footer */
+.bottom-footer {
+    text-align: center;
+    padding: 10px;
+    background: #222;
+    color: white;
+    width: 100%;
+    border-top: 2px solid white;
+}
