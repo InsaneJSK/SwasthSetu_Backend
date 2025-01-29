@@ -1,0 +1,29 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environment
+venv/
+.env
+*.venv
+
+# Flask migrations
+migrations/
+
+# Database
+*.sqlite3
+*.db
+
+# Logs
+logs/
+*.log
+
+# IDE settings
+.vscode/
+*.swp
+*.swo
+*.swn
+
+# Node dependencies (if using Netlify functions)
+node_modules/
