@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request
-
-app = Flask(__name__)
+from flask_migrate import Migrate
+from app import db, create_app
+app = create_app()
+migrate = Migrate(app, db)
 
 # Home Route (Can be updated later)
 @app.route('/')
 def home():
-    return "Welcome to SwasthSetu Backend"
+    return render_template("app\\index.html")
 
 # Serve Volunteer Form
 @app.route('/volunteer', methods=['GET', 'POST'])

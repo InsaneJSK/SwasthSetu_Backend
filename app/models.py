@@ -1,28 +1,24 @@
 from . import db
-from datetime import datetime
 
-class User(db.Model):
+class HelpRequest(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(200), nullable=False)
-    is_volunteer = db.Column(db.Boolean, default=False)
-
-class RideRequest(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-    location = db.Column(db.String(255), nullable=False)
-    emergency = db.Column(db.Boolean, default=False)
-    status = db.Column(db.String(50), default="Pending")
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
-
+    age = db.Column(db.Integer, nullable=False)
+    gender = db.Column(db.String(20), nullable=False)
+    contact = db.Column(db.String(20), nullable=False)
+    location = db.Column(db.String(200), nullable=False)
+    injury = db.Column(db.String(200), nullable=False)
+    transport = db.Column(db.String(50), nullable=False)
 class Volunteer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), unique=True, nullable=False)
-    city = db.Column(db.String(100), nullable=False)
-    rating = db.Column(db.Float, default=5.0)
+    volunteer_id = db.Column(db.String(50), nullable=False)
+    name = db.Column(db.String(100), nullable=False)
+    gender = db.Column(db.String(20), nullable=False)
+    contact = db.Column(db.String(20), nullable=False)
+    location = db.Column(db.String(255), nullable=False)
+    father_name = db.Column(db.String(100), nullable=False)
+    education = db.Column(db.String(255), nullable=False)
+    vehicle = db.Column(db.String(50), nullable=False)
 
-class Leaderboard(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), unique=True, nullable=False)
-    points = db.Column(db.Integer, default=0)
+    def __repr__(self):
+        return f"<Volunteer {self.name}>"

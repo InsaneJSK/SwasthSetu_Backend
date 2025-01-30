@@ -4,19 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SwasthSetu - Healthcare Access</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <script defer src="script.js"></script>
+    <script defer src="{{ url_for('static',filename='js/script.js') }}"></script>
   </head>
   <body>
     <!-- Navbar -->
     <header>
       <nav>
         <div class="logo-container">
-          <img src="logo.png" alt="SwasthSetu Logo" class="logo-img" />
+          <img src="{{ url_for('static',filename='images/logo.png') }}" alt="SwasthSetu Logo" class="logo-img" />
           <div class="logo-title">SwasthSetu</div>
         </div>
         <ul class="nav-links">
@@ -25,22 +25,30 @@
           </li>
           <li>
 
-            <a href="leaderboard.html"
+            <a href="{{ url_for('main.leaderboard')}}"
               ><i class="fas fa-hands-helping"></i> Volunteer</a
             >
           </li>
           <li>
-            <a href="Emergency.html">
+            <a href="{{ url_for('main.emergency')}}">
               <i class="fas fa-exclamation-triangle"></i> Emergency
             </a>
           </li>          
         </ul>
 
-        <a href="login.html" class="get-started">Login</a>
+        <a href="{{ url_for('main.login')}}" class="get-started">Login</a>
       </nav>
     </header>
 
     <!-- Hero Section -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="{{ category }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
     <section class="hero">
       <div class="hero-content">
         <h1>Bridging the Gap in Healthcare Access</h1>
@@ -49,23 +57,24 @@
           access to quality healthcare when they need it most.
         </p>
         <div class="hero-buttons">
-
+          <a href="{{ url_for('main.form')}}">
           <button
             class="btn btn-white"
-            onclick="document.location='AskForHelpForm.html'"
           >
             Ask For Help
           </button>
+          </a>
+          <a href="{{ url_for('main.volunteer')}}">
           <button
             class="btn btn-teal"
-            onclick="document.location='BecomeAvolunteerForm.html'"
           >
             Become a Volunteer
           </button>
+        </a>
         </div>
       </div>
       <div class="hero-image">
-        <img src="doctor-image.jpg" alt="Doctor holding a phone" />
+        <img src="{{ url_for('static',filename='images/doctor-image.jpg') }}" alt="Doctor holding a phone" />
       </div>
     </section>
 
@@ -137,12 +146,13 @@
         Join our community of volunteers and help bridge the healthcare access
         gap in your area.
       </p>
+      <a href="{{ url_for('main.volunteer')}}">
       <button
         class="btn btn-teal"
-        onclick="document.location='BecomeAvolunteerForm.html'"
       >
         Join SwasthSetu Today
       </button>
+      </a>
     </section>
 
     <!-- Footer -->
@@ -156,8 +166,8 @@
           <h3>Quick Links</h3>
           <ul>
             <li><a href="#features">Features</a></li>
-            <li><a href="#volunteer" onclick="document.location='BecomeAvolunteerForm.html'">Volunteer</a></li>
-            <li><a href="#emergency" onclick="document.location='Emergency.html'" >Emergency</a></li>
+            <li><a href="{{ url_for('main.volunteer')}}">Volunteer</a></li>
+            <li><a href="{{ url_for('main.emergency')}}" >Emergency</a></li>
           </ul>
         </div>
         <div class="footer-contact">

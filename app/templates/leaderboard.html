@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Volunteer Leaderboard - SwasthSetu</title>
-    <link rel="stylesheet" href="leaderboard.css" />
-    <script defer src="leaderboard.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/leaderboard.css') }}" />
+    <script defer src="{{ url_for('static',filename='js/leaderboard.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0"></script>
     <link
       rel="stylesheet"
@@ -18,27 +18,27 @@
     <header>
       <nav>
         <div class="logo-container">
-          <a href="index.html"
-            ><img src="logo.png" alt="SwasthSetu Logo" class="logo-img"
+          <a href="{{ url_for('main.home')}}"
+            ><img src="{{ url_for('static',filename='images/logo.png') }}" alt="SwasthSetu Logo" class="logo-img"
           /></a>
           <div class="logo-title">SwasthSetu</div>
         </div>
         <ul class="nav-links">
           <li>
-            <a href="#features"><i class="fas fa-cogs"></i> Features</a>
+            <a href="{{ url_for('main.home')}}"><i class="fas fa-cogs"></i> Features</a>
           </li>
           <li>
-            <a href="leaderboard.html"
+            <a href="{{ url_for('main.leaderboard')}}"
               ><i class="fas fa-hands-helping"></i> Volunteer</a
             >
           </li>
           <li>
-            <a href="#emergency"
+            <a href="{{ url_for('main.emergency')}}"
               ><i class="fas fa-exclamation-triangle"></i> Emergency</a
             >
           </li>
         </ul>
-        <a href="login.html" class="get-started">Login</a>
+        <a href="{{ url_for('main.login')}}" class="get-started">Login</a>
       </nav>
     </header>
 
@@ -93,9 +93,9 @@
         <div class="footer-links">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#volunteer">Volunteer</a></li>
-            <li><a href="#emergency">Emergency</a></li>
+            <li><a href="{{ url_for('main.home')}}">Features</a></li>
+            <li><a href="{{ url_for('main.volunteer')}}">Volunteer</a></li>
+            <li><a href="{{ url_for('main.emergency')}}">Emergency</a></li>
           </ul>
         </div>
         <div class="footer-contact">

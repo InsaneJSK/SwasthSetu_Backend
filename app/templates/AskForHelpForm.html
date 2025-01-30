@@ -60,63 +60,98 @@
         button:hover {
             background-color: #02665c;
         }
+
+        .error {
+            color: red;
+            font-size: 0.875rem;
+            margin-top: -10px;
+        }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('patient-form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                const name = document.getElementById('name').value;
-                const age = document.getElementById('age').value;
-                const gender = document.getElementById('gender').value;
-                const contact = document.getElementById('contact').value;
-                const location = document.getElementById('location').value;
-                const injury = document.getElementById('injury').value;
-                const transport = document.getElementById('transport').value;
-
-                console.log(`Patient's Name: ${name}`);
-                console.log(`Patient's Age: ${age}`);
-                console.log(`Patient's Gender: ${gender}`);
-                console.log(`Contact Number: ${contact}`);
-                console.log(`Patient's Location: ${location}`);
-                console.log(`Injury Type: ${injury}`);
-                console.log(`Preferred Mode of Transport: ${transport}`);
-
-                alert('Form submitted successfully!');
-            });
-        });
-    </script>
 </head>
 <body>
     <div class="form-container">
         <h2>Patient Information Form</h2>
-        <form id="patient-form">
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form id="patient-form" method="POST" action="{{ url_for('main.form') }}">
+            {{ form.hidden_tag() }}
+
             <label for="name">Patient's Name:</label>
-            <input type="text" id="name" name="name" required>
+            {{ form.name() }}
+            {% if form.name.errors %}
+                <div class="error">
+                    {% for error in form.name.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
 
             <label for="age">Patient's Age:</label>
-            <input type="number" id="age" name="age" required>
+            {{ form.age() }}
+            {% if form.age.errors %}
+                <div class="error">
+                    {% for error in form.age.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
 
             <label for="gender">Patient's Gender:</label>
-            <select id="gender" name="gender" required>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-            </select>
+            {{ form.gender() }}
+            {% if form.gender.errors %}
+                <div class="error">
+                    {% for error in form.gender.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
 
             <label for="contact">Contact Number:</label>
-            <input type="tel" id="contact" name="contact" required>
+            {{ form.contact() }}
+            {% if form.contact.errors %}
+                <div class="error">
+                    {% for error in form.contact.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
 
             <label for="location">Patient's Location:</label>
-            <input type="text" id="location" name="location" required>
+            {{ form.location() }}
+            {% if form.location.errors %}
+                <div class="error">
+                    {% for error in form.location.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
 
             <label for="injury">Injury Type:</label>
-            <input type="text" id="injury" name="injury" required>
+            {{ form.injury() }}
+            {% if form.injury.errors %}
+                <div class="error">
+                    {% for error in form.injury.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
 
             <label for="transport">Preferred Mode of Transport:</label>
-            <select id="transport" name="transport" required>
-                <option value="2-wheeler">2 Wheeler</option>
-                <option value="4-wheeler">4 Wheeler</option>
-            </select>
+            {{ form.transport() }}
+            {% if form.transport.errors %}
+                <div class="error">
+                    {% for error in form.transport.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
 
             <button type="submit">Submit</button>
         </form>
